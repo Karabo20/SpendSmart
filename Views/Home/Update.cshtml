@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Update Page";
+}
+
+@model SpendSmart.Models.Product
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3>You will be able to add, update or delete items. Let's begin</h3>
+    <h3>Let's begin!</h3>
+</div>
+
+<form asp-action="UpdateForm" asp-controller="Home"> 
+
+    <label >ID</label>
+    <input class="form-control" type="number" placeholder="0" asp-for="ID" />
+
+    <label class="mt-4">Value (Rand)</label>
+    <input class="form-control" type="number" placeholder="0" asp-for="Value" step="0.1" /> 
+
+    <label class="mt-4">Description</label>
+    <input class="form-control" type="text" placeholder="Add description" asp-for="Description" />
+
+    <button class="btn btn-secondary mt-4" type="submit">Ok</button>
+
+</form>
+
+

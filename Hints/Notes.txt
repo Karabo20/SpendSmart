@@ -1,0 +1,44 @@
+﻿PACKAGES
+
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.Tools
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Design
+
+
+
+
+
+
+
+						DEPENDECY INJECTION
+
+
+
+In HomeController in the class:
+
+        private readonly SpendSmartDbContext _context;  
+Then in the constructor: ---> public HomeController(SpendSmartDbContext context)
+	_context = context;
+
+
+
+
+
+CREATE A SEPARATE CLASS:
+
+    public class SpendSmartDbContext : DbContext
+    {
+        public DbSet<Product> Products { get; set; }
+
+        public SpendSmartDbContext(DbContextOptions<SpendSmartDbContext> options) : base(options)
+        {
+        }
+    }
+
+
+    IN THE PROGRAM CLASS UNDER SERVICES:
+
+builder.Services.AddDbContext<SpendSmartDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("connSpend")));
+

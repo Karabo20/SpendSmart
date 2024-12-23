@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Products Page";
+}
+
+@model List<Product>
+
+<div class="text-center">
+    <h1>Items currently in stock</h1>
+    <br></br>
+
+
+    <table style="text-align: center;">
+        <tr>
+            <th style="padding: 50px;">ID</th>
+            <th style="padding: 50px;">Value</th>
+            <th style="padding: 50px;">Description</th>
+        </tr>
+
+        <tbody>
+
+            @{
+                foreach (var row in Model)
+                {
+                    <tr>
+                        <td>@row.ID</td>
+                        <td>@row.Value</td>
+                        <td>@row.Description</td>
+                    </tr>
+                }
+
+            }
+
+
+        </tbody>
+
+
+
+    </table>
+
+</div>
+
+
+
+
+
